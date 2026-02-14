@@ -1,248 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Support Playlists — A Layer That Makes Digital Health Platforms More Useful</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  line-height:1.6;
-  color:#111;
-  background:#ffffff;
-}
-section{
-  max-width:780px;
-  margin:auto;
-  padding:80px 24px;
-}
-h1{
-  font-size:40px;
-  line-height:1.15;
-  margin-bottom:20px;
-}
-h2{
-  font-size:26px;
-  margin-bottom:18px;
-}
-p{
-  font-size:18px;
-  margin:14px 0;
-}
-.lead{
-  font-size:22px;
-}
-.divider{
-  height:1px;
-  background:#eee;
-  margin:60px 0;
-}
-.highlight{
-  background:#f6f9ff;
-  padding:24px;
-  border-radius:14px;
-  margin:28px 0;
-}
-.small{
-  font-size:15px;
-  color:#555;
-}
-a{
-  color:#2563eb;
-  text-decoration:none;
-}
-a:hover{
-  text-decoration:underline;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discharge is a navigation problem — a note for Mark Mould</title>
+  <style>
+    :root{
+      --text:#171717;
+      --muted:#5a5a5a;
+      --bg:#ffffff;
+      --soft:#f6f7f8;
+      --border:#e7e7e7;
+      --accent:#0a4d3c;
+      --accent2:#0f6b55;
+      --max:760px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:56px 22px 90px;
+    }
+    .kicker{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+    h1{
+      font-size:34px;
+      line-height:1.15;
+      margin:14px 0 10px;
+      letter-spacing:-.3px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:18px;
+      max-width:62ch;
+    }
+    .meta{
+      margin:18px 0 0;
+      padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      align-items:center;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .meta strong{color:var(--text); font-weight:600}
+    .hr{
+      height:1px;
+      background:var(--border);
+      margin:28px 0;
+    }
+    h2{
+      font-size:20px;
+      margin:0 0 10px;
+      letter-spacing:-.2px;
+    }
+    p{margin:0 0 14px}
+    .card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px 18px 16px;
+      background:var(--soft);
+      margin:14px 0;
+    }
+    .callout{
+      border-left:4px solid var(--accent2);
+      padding:12px 14px;
+      background:#f3fbf8;
+      border-radius:10px;
+      margin:14px 0;
+    }
+    ul{
+      margin:10px 0 0 20px;
+      padding:0;
+    }
+    li{margin:6px 0}
+    .two{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin:12px 0 2px;
+    }
+    @media(min-width:840px){
+      .two{grid-template-columns: 1fr 1fr}
+    }
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:10px 0 0;
+    }
+    .pill{
+      font-size:13px;
+      border:1px solid var(--border);
+      padding:7px 10px;
+      border-radius:999px;
+      background:#fff;
+      color:var(--muted);
+    }
+    .cta{
+      margin:22px 0 0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-block;
+      padding:11px 14px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--accent);
+    }
+    .btn:hover{background:#083d30; text-decoration:none}
+    .btn2{
+      display:inline-block;
+      padding:11px 14px;
+      border-radius:12px;
+      background:#fff;
+      color:var(--accent);
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--border);
+    }
+    .btn2:hover{border-color:#cfd6d3; text-decoration:none}
+    footer{
+      margin-top:44px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .small{font-size:13px; color:var(--muted)}
+  </style>
 </head>
 <body>
+  <main class="wrap">
+    <span class="kicker">A short note for Mark Mould, COO at University Hospitals Dorset</span>
+    <h1>Discharge is a navigation problem.</h1>
+    <p class="sub">
+      Control centres can see pressure in real time. The harder bit is what happens to people once they leave the hospital, and whether they know what to do next.
+    </p>
 
-<section>
-<h1>A small idea that could make digital health platforms much more powerful</h1>
+    <div class="meta">
+      <span><strong>From:</strong> Mark Winterburn</span>
+      <span><strong>Focus:</strong> discharge, flow, and community handover</span>
+      <span><strong>Related:</strong> Neighbourhood CoLab</span>
+      <span>🔗 <a href="https://neighbourhoodcolab.netlify.app/" target="_blank" rel="noopener">neighbourhoodcolab.netlify.app</a></span>
+    </div>
 
-<p class="lead">
-Most digital health tools help clinicians communicate, document, triage, or coordinate.
-</p>
+    <div class="hr"></div>
 
-<p class="lead">
-Very few help people understand what to do next.
-</p>
+    <h2>Why I’m writing</h2>
+    <p>
+      I saw your post about acute control centres extending into the community. That phrasing is unusually precise.
+      It names a real operational gap.
+    </p>
+    <p>
+      Hospitals can identify people who are medically ready to leave. But the system is weaker at the point where life resumes,
+      and support becomes fragmented, inconsistent, or simply invisible.
+    </p>
 
-<p>
-That gap matters more than it looks. Because confusion is one of the biggest hidden drivers of demand.
-</p>
-</section>
+    <div class="callout">
+      <p><strong>The hidden constraint:</strong> many people leave with instructions, but without a usable next-step path.</p>
+      <p class="small">That gap quietly drives avoidable contacts, avoidable anxiety, and avoidable returns.</p>
+    </div>
 
-<section>
-<h2>The missing layer</h2>
+    <div class="hr"></div>
 
-<p>
-Support Playlists are personalised guidance paths generated from what someone says they need.
-</p>
+    <h2>What I’m building</h2>
+    <p>
+      I’m developing an approach called <strong>Support Playlists</strong>.
+      Think of it as a discharge and recovery companion layer, designed for real life.
+    </p>
 
-<p class="lead">
-Support Playlists start with voice, and fall back to text.
-</p>
+    <div class="card">
+      <h2 style="margin:0 0 8px">Support Playlists, in plain terms</h2>
+      <p style="margin:0 0 10px">
+        A Support Playlist is a curated set of next steps, services, and practical help,
+        tailored to what someone says is going on, and where they live.
+      </p>
+      <ul>
+        <li>Local options, national options, and trusted digital support, in one place.</li>
+        <li>Designed to be understood quickly, on a phone, under stress.</li>
+        <li>Built around “What do I do next?” rather than “Which service do I pick?”</li>
+      </ul>
+      <div class="pillrow">
+        <span class="pill">post-discharge</span>
+        <span class="pill">community navigation</span>
+        <span class="pill">reduces avoidable contacts</span>
+        <span class="pill">equity by default</span>
+      </div>
+    </div>
 
-<p>
-Not search results.<br>
-Not static signposting.<br>
-Not generic advice.
-</p>
+    <div class="hr"></div>
 
-<p>
-They translate a person’s situation into a tailored set of next steps, drawing from local, national and digital support options.
-</p>
+    <h2>Where this helps a COO</h2>
+    <div class="two">
+      <div class="card" style="background:#fff">
+        <h2 style="margin:0 0 8px">1. Fewer avoidable rebounds</h2>
+        <p style="margin:0">
+          When people understand the next step, they are less likely to default back to A&E, 999, or the ward phone.
+          The goal is to make the right support easier to reach than staying confused.
+        </p>
+      </div>
+      <div class="card" style="background:#fff">
+        <h2 style="margin:0 0 8px">2. A community extension that actually acts</h2>
+        <p style="margin:0">
+          A control centre can see the pressure. This is a mechanism that helps the community layer respond,
+          without asking people to become expert navigators.
+        </p>
+      </div>
+      <div class="card" style="background:#fff">
+        <h2 style="margin:0 0 8px">3. Cleaner handover language</h2>
+        <p style="margin:0">
+          “Discharge advice” often reads like policy. A Support Playlist translates it into action,
+          in everyday words, with routes and options.
+        </p>
+      </div>
+      <div class="card" style="background:#fff">
+        <h2 style="margin:0 0 8px">4. Better equity under pressure</h2>
+        <p style="margin:0">
+          The people most at risk are often least able to navigate complexity.
+          This is designed to reduce reliance on insider knowledge.
+        </p>
+      </div>
+    </div>
 
-<div class="highlight">
-<p><strong>In simple terms:</strong><br>
-They help people reach the right help sooner, and with more confidence.</p>
-</div>
-</section>
+    <div class="hr"></div>
 
-<section>
-<h2>Why this matters for platforms</h2>
+    <h2>How it could fit UHD’s direction</h2>
+    <p>
+      If you are evolving control centres into something that reaches beyond the acute site,
+      there is a neat division of labour:
+    </p>
+    <ul>
+      <li><strong>Control centre:</strong> real-time awareness, escalation, flow decisions.</li>
+      <li><strong>Neighbourhood layer:</strong> next-step navigation for people, carers, and families.</li>
+      <li><strong>Feedback loop:</strong> aggregated patterns of need to inform operational focus.</li>
+    </ul>
 
-<p>
-Most platforms currently optimise for interaction.
-</p>
+    <div class="callout">
+      <p><strong>This is not a new portal.</strong> It’s a translation layer between discharge and real life.</p>
+    </div>
 
-<p>
-Messaging. Forms. Notes. Tasks. Triage.
-</p>
+    <div class="hr"></div>
 
-<p>
-Those are essential.
-</p>
+    <h2>Governance, briefly</h2>
+    <p>
+      I’m very conservative about data and boundaries. This is designed to work with minimal risk:
+    </p>
+    <ul>
+      <li>No need for patient-identifiable data to get value early.</li>
+      <li>Start small with a single pathway or cohort, and learn what actually reduces friction.</li>
+      <li>Keep ownership and oversight where it belongs, within NHS governance.</li>
+    </ul>
 
-<p>
-But there’s another layer that sits just outside them:</p>
+    <div class="hr"></div>
 
-<p class="lead">
-Navigation.
-</p>
+    <h2>A simple next step</h2>
+    <p>
+      If it’s useful, I can share a short walkthrough of what a Support Playlist looks like in a discharge context,
+      and we can sanity-check whether this would genuinely help your community extension plan.
+    </p>
 
-<p>
-If people don’t know where they’re going, even the best systems still receive misdirected demand.
-</p>
-</section>
+    <div class="cta">
+      <a class="btn" href="https://neighbourhoodcolab.netlify.app/" target="_blank" rel="noopener">Neighbourhood CoLab</a>
+      <a class="btn2" href="mailto:mark.winterburn@nhs.net?subject=UHD%20control%20centres%20and%20discharge%20navigation&body=Hi%20Mark%2C%0A%0AI%20saw%20your%20post%20about%20control%20centres%20extending%20into%20the%20community.%20I%E2%80%99ve%20been%20building%20a%20discharge%2Frecovery%20navigation%20layer%20called%20Support%20Playlists.%20Happy%20to%20share%20a%20short%20walkthrough%20if%20useful.%0A%0ABest%2C%0AMark" >
+        Email me
+      </a>
+      <span class="small">Or reply on LinkedIn and I’ll send a one-page version.</span>
+    </div>
 
-<section>
-<h2>Where Support Playlists fit</h2>
-
-<p>
-They don’t replace platforms.<br>
-They strengthen them.
-</p>
-
-<p>
-They can sit alongside existing tools and act as a guidance layer that:
-</p>
-
-<p>
-• reduces unnecessary contacts<br>
-• improves pathway alignment<br>
-• supports prevention<br>
-• increases confidence<br>
-• reduces explanation time<br>
-• improves experience on both sides
-</p>
-
-<div class="highlight">
-<p>
-Platforms help clinicians do things.<br>
-Support Playlists help people understand things.
-</p>
-</div>
-</section>
-
-<section>
-<h2>Why now</h2>
-
-<p>
-Health systems everywhere are shifting:
-</p>
-
-<p>
-From hospital to community<br>
-From analogue to digital<br>
-From treatment to prevention
-</p>
-
-<p>
-Those shifts only work if people can navigate support before they escalate into services.
-</p>
-
-<p class="lead">
-Navigation is becoming infrastructure.
-</p>
-</section>
-
-<section>
-<h2>The bigger pattern</h2>
-
-<p>
-Support Playlists are part of a wider neighbourhood-level model designed to help systems:
-</p>
-
-<p>
-notice pressure earlier<br>
-respond sooner<br>
-and keep people supported outside clinical pathways when appropriate
-</p>
-
-<p>
-That wider model is explained here:
-</p>
-
-<p>
-<a href="https://neighbourhoodsignals.netlify.app/" target="_blank">
-Neighbourhood Signals overview →
-</a>
-</p>
-</section>
-
-<section>
-<h2>Why I’m sharing this</h2>
-
-<p>
-People building digital health platforms are in a unique position.
-</p>
-
-<p>
-You already have scale, trust, and workflow presence.
-</p>
-
-<p>
-Adding navigation intelligence doesn’t require replacing what exists.
-</p>
-
-<p class="lead">
-It simply makes what exists more useful.
-</p>
-
-<div class="divider"></div>
-
-<p class="small">
-Shared openly as infrastructure thinking, not a product pitch.
-</p>
-
-<p class="small">
-Mark Winterburn<br>
-Neighbourhood-level systems exploration<br>
-Portland, UK
-</p>
-
-<p class="small">
-Part of the wider neighbourhood infrastructure work stewarded through
-<a href="https://neighbourhoodcolab.netlify.app/" target="_blank">
-Neighbourhood CoLab
-</a>
-</p>
-
-</section>
-
+    <footer>
+      <p style="margin:0 0 10px">
+        Built by Mark Winterburn, on Portland, Dorset. Work in neighbourhood-level navigation, demand-shaping intelligence, and operational relief.
+      </p>
+      <p style="margin:0">
+        Reference link: <a href="https://neighbourhoodcolab.netlify.app/" target="_blank" rel="noopener">neighbourhoodcolab.netlify.app</a>
+      </p>
+    </footer>
+  </main>
 </body>
 </html>
